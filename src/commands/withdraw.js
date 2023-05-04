@@ -20,8 +20,8 @@ Comp.hears('💲Withdraw', async (ctx) => {
 
 🔄Exchange Point to ~
 👉Netflix Account [5 Point ].
-👉Netflix On Mail Account [ 30 Point ].
-👉Prime On mail Account [ 15 Point ].</b>`, 
+👉Netflix On Mail Account [ 20 Point ].
+👉Prime On mail Account [ 20 Point ].</b>`, 
 { parse_mode: "html", reply_markup: { inline_keyboard: [[{ text: "NETFLIX", callback_data: "/Nf instant" }],[{text: "🔥 NETFLIX ON MAIL", callback_data: "/Nf mail" }],[{text: "🔥 PRIME ON MAIL", callback_data: "/Nf prime" }]]} }
   )
 })
@@ -44,8 +44,8 @@ var params = ctx.update.callback_query.data.split(' ')[1]
    let b;
 if(params == "prime"){
 b = await db.collection('balance').find({ userId: ctx.from.id }).toArray()
-    if (b[0].balance < env.pmail) {
-      ctx.replyWithMarkdown('‼ *🚫 You Need '+env.pmail+' ' + await curr() + ' For Exchanging .\n👬 Refer More to Earn .*')
+    if (b[0].balance < env.wpmail) {
+      ctx.replyWithMarkdown('‼ *🚫 You Need '+env.wpmail+' ' + await curr() + ' For Exchanging .\n👬 Refer More to Earn .*')
       return
     }
 ctx.replyWithMarkdown("*📧 Kindly Enter Your Email*")
@@ -88,8 +88,8 @@ return
 }
 if(params == "mail"){
 b = await db.collection('balance').find({ userId: ctx.from.id }).toArray()
-    if (b[0].balance < env.mail) {
-      ctx.replyWithMarkdown('‼ *🚫 You Need '+env.mail+' ' + await curr() + ' For Exchanging .\n👬 Refer More to Earn .*')
+    if (b[0].balance < env.wmail) {
+      ctx.replyWithMarkdown('‼ *🚫 You Need '+env.wmail+' ' + await curr() + ' For Exchanging .\n👬 Refer More to Earn .*')
       return
     }
 ctx.replyWithMarkdown("*📧 Kindly Enter Your Email*")
@@ -132,8 +132,8 @@ return
 }
 if(params == "instant"){
 b = await db.collection('balance').find({ userId: ctx.from.id }).toArray()
-    if (b[0].balance < env.instant) {
-      ctx.replyWithMarkdown('‼ *🚫 You Need '+env.instant+' ' + await curr() + ' For Exchanging .\n👬 Refer More to Earn .*')
+    if (b[0].balance < env.winstant) {
+      ctx.replyWithMarkdown('‼ *🚫 You Need '+env.winstant+' ' + await curr() + ' For Exchanging .\n👬 Refer More to Earn .*')
       return
     }
     const dat = await db.collection('acc').find({ type: "num" }).toArray();
