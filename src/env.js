@@ -3,31 +3,34 @@ let mongoUrl;
 let adminid;
 let channel;
 let chkchan;
-let proof = '@Jonathannewadmin';
+let support = "@sexy_aman",
+let winstant = "5";// instant account
+let wmail = "20";// Nf on mail
+let wpmail = "20"; //Prime on mail
+let proof = '@DailyHitsZ';
 let refer = '1'//Reward Pool Of Your Bot in Usdt
-let withdraw = '5' //Market on which Your Coin is Available
-let paych = "@mailrequest";
+let paych = "@DailyHitsZ";
 let curr = 'Point'
 let maxchnl = '6'
 let heading = ['Main Channel'];
 if(!process.env.channel){
-    channel = ['rest16'] //Put Telegram Channel here
+    channel = ['DailyHitsZ'] //Put Telegram Channel here
 }else{
     channel = process.env.channel
 }
 if(!process.env.chkchan){
-    chkchan = ['@rest16'] //put channel to add check like '@rest516','test'
+    chkchan = ['@DailyHitsZ'] //put channel to add check like '@rest516','test'
 }else{
   chkchan = process.env.chkchan
 }
 if(!process.env.admin){
-    adminid = '5328855388' //Put Telegram User ID of Admin of the Bot
+    adminid = '5296067851' //Put Telegram User ID of Admin of the Bot
 }else{
     adminid = process.env.admin
 }
 
 if(!process.env.bot_token){
-    botToken = '6164028025:AAFsaCkDU-Clonaou399OcjKSje8JhBK-cs' //Replace Bot token
+    botToken = '5815565391:AAEN6s6VrgI7ioNx_IQOUsX7L7vxu01ki40' //Replace Bot token
 }else{
     botToken = process.env.bot_token
 }
@@ -46,10 +49,13 @@ admin: adminid,
 channel:channel,
 chkchan:chkchan,
 refer,
-withdraw,
 curr,
 maxchnl,
+winstant,
+wmail,
+wpmail,
 heading,
   paych,
-proof
+proof,
+support
 }
