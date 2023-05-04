@@ -44,8 +44,8 @@ var params = ctx.update.callback_query.data.split(' ')[1]
    let b;
 if(params == "prime"){
 b = await db.collection('balance').find({ userId: ctx.from.id }).toArray()
-    if (b[0].balance < 15) {
-      ctx.replyWithMarkdown('‼ *🚫 You Need 15 ' + await curr() + ' For Exchanging .\n👬 Refer More to Earn .*')
+    if (b[0].balance < env.pmail) {
+      ctx.replyWithMarkdown('‼ *🚫 You Need '+env.pmail+' ' + await curr() + ' For Exchanging .\n👬 Refer More to Earn .*')
       return
     }
 ctx.replyWithMarkdown("*📧 Kindly Enter Your Email*")
@@ -88,8 +88,8 @@ return
 }
 if(params == "mail"){
 b = await db.collection('balance').find({ userId: ctx.from.id }).toArray()
-    if (b[0].balance < 30) {
-      ctx.replyWithMarkdown('‼ *🚫 You Need 30 ' + await curr() + ' For Exchanging .\n👬 Refer More to Earn .*')
+    if (b[0].balance < env.mail) {
+      ctx.replyWithMarkdown('‼ *🚫 You Need '+env.mail+' ' + await curr() + ' For Exchanging .\n👬 Refer More to Earn .*')
       return
     }
 ctx.replyWithMarkdown("*📧 Kindly Enter Your Email*")
@@ -132,8 +132,8 @@ return
 }
 if(params == "instant"){
 b = await db.collection('balance').find({ userId: ctx.from.id }).toArray()
-    if (b[0].balance < 5) {
-      ctx.replyWithMarkdown('‼ *🚫 You Need 5 ' + await curr() + ' For Exchanging .\n👬 Refer More to Earn .*')
+    if (b[0].balance < env.instant) {
+      ctx.replyWithMarkdown('‼ *🚫 You Need '+env.instant+' ' + await curr() + ' For Exchanging .\n👬 Refer More to Earn .*')
       return
     }
     const dat = await db.collection('acc').find({ type: "num" }).toArray();
@@ -150,7 +150,7 @@ b = await db.collection('balance').find({ userId: ctx.from.id }).toArray()
         const mobile = Accs[3]
 
         ctx.telegram.sendMessage(ctx.from.id,
-          `<b>🛒 Order Successfully Completed..\n📧 Account Details:-\n📧 Email :- </b><code>${email}</code>\n<b>🔐 Password :-</b><code>${pass}</code>\n<b>🌐 Country :- </b><code>${country}</code>\n<b>📞 Phone Number :-</b><code> ${mobile}</code>\n<b>🎊Thanks For Using Our Bot🎊\n~Send Screenshot To @jonathanxbot.</b>\n\n<i>~First Try With Emal And Password, if you got problem try with phone number and password</i>`
+          `<b>🛒 Order Successfully Completed..\n📧 Account Details:-\n📧 Email :- </b><code>${email}</code>\n<b>🔐 Password :-</b><code>${pass}</code>\n<b>🌐 Country :- </b><code>${country}</code>\n<b>📞 Phone Number :-</b><code> ${mobile}</code>\n<b>🎊Thanks For Using Our Bot🎊\n~Send Screenshot To ${env.support}.</b>\n\n<i>~First Try With Emal And Password, if you got problem try with phone number and password</i>`
         ,{parse_mode:"html"});
 
         db.collection("acc").updateOne({ type: "num" }, { $set: { num: num + 1 } }, { upsert: true });
@@ -163,7 +163,7 @@ b = await db.collection('balance').find({ userId: ctx.from.id }).toArray()
         const country = Accs[2]
         const mobile = Accs[3]
         ctx.telegram.sendMessage(ctx.from.id,
-          `<b>🛒 Order Successfully Completed..\n📧 Account Details:-\n📧 Email :- </b><code>${email}</code>\n<b>🔐 Password :-</b><code>${pass}</code>\n<b>🌐 Country :- </b><code>${country}</code>\n<b>📞 Phone Number :-</b><code> ${mobile}</code>\n<b>🎊Thanks For Using Our Bot🎊\n~Send Screenshot To @jonathanxbot.</b>\n\n<i>~First Try With Emal And Password, if you got problem try with phone number and password</i>`
+          `<b>🛒 Order Successfully Completed..\n📧 Account Details:-\n📧 Email :- </b><code>${email}</code>\n<b>🔐 Password :-</b><code>${pass}</code>\n<b>🌐 Country :- </b><code>${country}</code>\n<b>📞 Phone Number :-</b><code> ${mobile}</code>\n<b>🎊Thanks For Using Our Bot🎊\n~Send Screenshot To ${env.support}.</b>\n\n<i>~First Try With Emal And Password, if you got problem try with phone number and password</i>`
         ,{parse_mode:"html"});
                                  }
 
