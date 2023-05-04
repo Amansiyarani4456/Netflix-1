@@ -3,7 +3,7 @@ let mongoUrl;
 let adminid;
 let channel;
 let chkchan;
-let support = "@sexy_aman",
+let support = "@sexy_aman";
 let winstant = "5";// instant account
 let wmail = "20";// Nf on mail
 let wpmail = "20"; //Prime on mail
