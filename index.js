@@ -197,7 +197,7 @@ bot.action(/^\Reply/, async (ctx) => {
 bot.hears("📞 Support",
   ctx => {
     ctx.reply(
-      "*If You Have A Major Problem Then You Can Directly Contact To Owner  - @Jonathan111339*", { parse_mode: "markdown" ,reply_markup:{inline_keyboard: [
+      "*If You Have A Major Problem Then You Can Directly Contact To Owner  - "+env.support+"*", { parse_mode: "markdown" ,reply_markup:{inline_keyboard: [
       [
         {
           text: 'Redirect to user',
